@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Board Game(Turn-based)</title>
+  </head>
+  <body>
+    <!--Game Header-->
+    <header>
+      <div class="container-fluid">
+        <div class="row bg-info">
+          <div class="col-4"></div>
+          <div class="col-4">
+              <h1 class="bg-info">Royal Rumble Fight</h1>  
+          </div>
+          <div class="col-4"></div>
+        </div>
+      </div>
+      <div class="container-fluid" id="game-btn">
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <button>
+              <a class="btn btn-default" href="game.html">Restart Game</a>
+            </button>
+          </div>
+          <div class="col-2">
+      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Rules of play</button>
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Game Rules</h3>
+                  </div>
+                  <div class="modal-body">
+                    <ul>
+                      <li>Each player start the game with 100% life point and a default weapon.</li>
+                      <li>Each weapon has an assigned value and impact</li>
+                      <li>Each player has the ability to move up 3 steps horizontally or
+                        vertically.</li>
+                      <li>When the two players are next to each other, the fight commences.</li>
+                      <li>An attack and defense button should be displayed on the player container when the fight begins</li>
+                      <li>When the life point of any player gets to zero or less than zero, the game ends</li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="row player-container">
+            <div class="col-3">
+              <div class="player-image-container">
+                <img src="images/players/mario.jpg" alt="player 1" class="Slider_img">
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="details">
+              <h5>Player Name: Mario</h5>
+              <h5>Life: <span id="life-1"></span></h5>
+              <!-- <h5>Weapon Name: Strawberry</h5> -->
+              <h5>Weapon Power: <span class="weapons-1"></span></h5>
+              <h5>Weapon Image: <div class="weps-1"></div> </h5>
+              <div class="turn-1"></div>
+              <div class="buttons">
+              <button class="btn-attack-1">Attack</button>
+              <button class="btn-defend-1">Defend</button>
+            </div>
+              </div>
+            </div>            
+          </div>       
+        </div>
+        <div class="col-6">
+          <div id="container"></div>
+        </div>
+        <div class="col-3">
+          <div class="row player-container">
+            <div class="col-3">
+              <div class="player-image-container">
+                <img src="images/players/pokemon.jpg" alt="player 2" class="Slider_img">
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="details">
+              <h5>Player Name: Pokemon</h5>
+              <h5>Life: <span id="life-2"></span></h5>
+              <!-- <h5>Weapon Name: Strawberry</h5> -->
+              <h5>Weapon Power: <span class="weapons-2"></span></h5>
+              <h5>Weapon Image: <div class="weps-2"></div> </h5>
+              <div class="turn-2"></div>
+            <div class="buttons">
+              <button class="btn-attack-2">Attack</button>
+              <button class="btn-defend-2">Defend</button>
+            </div>
+              </div>
+            </div>            
+          </div> 
+        </div>
+      </div>
+    </div>
+    
+    <!-- Start of game over section area-->
+    <div id="gameover-display">
+      <div class="gameOver-content">
+          <h2>GAME OVER!</h2>
+          <p><span id="winner"></span> won the royal rumble fight</p>
+          <p><span id='looser'></span>, Do you want to play another round?.</p>
+          <h3>Click on the button below</h3>
+          <button id="start-again">
+            <a href="index.html" class="btn btn-info">PLAY AGAIN!</a>
+          </button>
+      </div>
+    </div>
+    <!-- end of game over section area-->
+
+    <!--Add JS files and  jQuery library-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/model/data.js"></script>
+    <script type="text/javascript" src="controller/initialize-game-container.js"></script>
+    <script type="text/javascript" src="view/update_weapons.js"></script>
+    <script type="text/javascript" src="model/player_logic.js"></script>
+    <script type="text/javascript" src="controller/fight.js"></script>
+  </body>
+</html>

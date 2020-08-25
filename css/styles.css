@@ -1,0 +1,224 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding: 0;
+}
+
+ul li {
+    list-style: circle;
+}
+.game-weapons {
+    display: inline-flex;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+}
+figure img {
+    max-width: 5rem;
+    max-height: 5rem;
+}
+
+.player-box {   
+    background-color: black;
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+    flex-direction: column;
+    min-height: 600px;
+    min-width: 250px;
+    max-height: 600px;
+    max-width: 250px;
+    margin-right: 55px;
+    margin-left: 55px;
+    border: solid 2px grey;
+    border-radius: 25px;
+    margin-top: 100px;
+}
+
+.player-box .player, .player-box .weapon {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.player-box .player-box {
+    margin: 0 auto;
+}
+
+
+.weps-1 img, .weps-2 img, #player-1, #player-2 {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+#player-1 .player, #player-2 .player {
+   
+    font-size: 20px;
+    text-align: center;
+}
+.player-img , #zombie-img, #human-img {
+    width: 200px;
+    height: 200px;
+}
+.name-1 , .name-2 {
+    margin-top: 30px;
+}
+
+
+#container {
+    min-width: 650px;
+    min-height: 650px;
+    max-width:  650px;
+    max-height:  650px;
+    border-radius: 5px;
+    display: border-box;
+    margin: 50px 15px;
+    position: relative;
+}
+
+#container .box {
+    border-radius: 2px;
+    border: 1px solid grey;
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.box {
+    width: 65px;
+    height: 65px;
+}
+
+
+#container .obstacle {
+    background-image: url('../images/barrier.png');
+    background-size: 65px 65px;
+
+}
+
+#container .weapon.wp-1, .wp-1 {
+    background-image: url('../images/weapons/strawberry-weapon.png');
+    background-size: 65px 65px;
+}
+
+#container .weapon.wp-2, .wp-2 {
+    background-image: url('../images/weapons/apple-weapon.png');
+    background-size: 65px 65px;
+
+}
+
+#container .weapon.wp-3, .wp-3 {
+    background-image: url('../images/weapons/pistol3.png');
+    background-size: 65px 65px;
+
+}
+
+#container .weapon.wp-4, .wp-4{
+    background-image: url('../images/weapons/bomb.png');
+    background-size: 65px 65px;
+
+}
+
+#container .weapon.wp-5, .wp-5{
+    background-image: url('../images/weapons/sword.png');
+    background-size: 65px 65px;
+
+}
+
+#container .player1 {
+    background-image: url('../images/players/mario.jpg') !important;
+    background-size: 65px 65px;
+}
+
+#container .player2 {
+    background-image: url('../images/players/pokemon.jpg') !important;
+    background-size: 65px 65px;
+}
+
+#gameover-display {
+    display: none;
+}
+
+.btn-attack-1, .btn-attack-2 {
+    background-color: #28a745;
+    margin-top: 10px;
+    color: #000000;
+    border:1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.btn-defend-1, .btn-defend-2 {
+    background-color: #dc3545;
+    margin-top: 10px;
+    color: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+  .player-container {
+    border: 1px solid #000;
+    padding: 5px;
+    background-color: #17a2b8;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-style: italic;
+    color: #000;
+  }
+
+  .clearfix {
+    zoom: 1;
+  }
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.Slider_img {
+    float:left;
+    width:50%; 
+}
+.details{
+    float:right;
+    width:50%;
+}
+
+.player-image-container {
+  width: 200px;
+  height: 120px;
+}
+
+.player-image-container img .Slider_img{
+  max-width:100%;
+  height:auto;
+}
+
+#game-btn {
+  margin-top: 20px;
+}
+
+button {
+  border: 1px solid #ffffff;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color:  #17a2b8;
+}
+
+button > a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+button > a:hover {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
