@@ -1,6 +1,4 @@
-  
-// check which player is active:
-function whoIsActive() {
+  const whoIsActive = () => {
     if (player1Active) {
         activePlayer = 2;
         notActivePlayer = 1;
@@ -14,38 +12,26 @@ function whoIsActive() {
         setActiveBoard(notActivePlayer, activePlayer,);
         displayMessageOnBoard(activePlayer);
     }
-
 }
-
-
-//set attributes to the acctive player to use them by replacing weapon
-function setActivePlayer(Active, notActive, activePowerDiv) {
-    playerActive = Active;
+//set attributes to the active player to use them by replacing weapon
+const setActivePlayer = (active, notActive, activePowerDiv) => {
+    playerActive = active;
     playerNotActive = notActive; 
     activePlayerPowerDiv = activePowerDiv;      
 }
 
-
-// add a class for a board of the active player to display current information about game flow
-function setActiveBoard(notActivePlayer, activePlayer) {
+const setActiveBoard = (notActivePlayer, activePlayer) => {
     $('#player-' + notActivePlayer).removeClass('active-board');
     $('#player-' + activePlayer).addClass('active-board');
 }
 
-
-// display random message on active player's board
-function displayMessageOnBoard(activePlayer) {  
+const displayMessageOnBoard = (activePlayer) => {  
     let text = turnMessage[Math.floor(Math.random()*turnMessage.length)];
     $('.turn-' + activePlayer).text(text);
     $('.turn-' + notActivePlayer).text(noTurnMessage);
 }
 
-
-
-// initialize the movment of the players:
-// players can move by the mouse click 3 tiles horizontally or vertically, avoiding tiles with obstacles
-// and the tiles with another player
-function movePlayer() {
+const movePlayer = () => {
     let gameBox = $('.box');
     // mouseover method shows the possible move of the player
     gameBox.hover( function () {
@@ -56,8 +42,7 @@ function movePlayer() {
             for (let i = Math.min(posOld.x, posNew.x); i <= Math.max(posOld.x, posNew.x); i++) {
                 let num = getTileIndex(i, posOld.y);
                 let tile = $('.box[data-index="' + num + '"]');
-                //console.log(tile);
-                //$(this).css({'backgroundImage': 'url(images/path-1.jpg ',});
+                
                 if (tile.hasClass('obstacle')) {
                     return;
                 }
@@ -76,7 +61,7 @@ function movePlayer() {
             for (let i = Math.min(posOld.y, posNew.y); i <= Math.max(posOld.y, posNew.y); i++) {
                 let num = getTileIndex(posOld.x, i);
                 let tile = $('.box[data-index="' + num + '"]');
-                //$(this).css({'backgroundImage': 'url(images/path-1.jpg ',});
+                
                 if (tile.hasClass('obstacle')) {
                     return;
                 }
@@ -92,30 +77,7 @@ function movePlayer() {
                 
             }
             
-            if (!attacked) {
-                // if players don't cross adjacent tile, their path for possible movement will be shown
-                if (posNew.y === posOld.y && posNew.x <= posOld.x + possibleMoves && posNew.x >= posOld.x - possibleMoves
-                    || posNew.x === posOld.x && posNew.y <= posOld.y + possibleMoves && posNew.y >= posOld.y - possibleMoves) {
-
-                    if (player1Active) {
-                        $(this).css('backgroundImage', 'url(' + player1.activePath + ')');
-                        //$(this).css({'backgroundImage': 'url(images/path-1.jpg ',});
-
-                    } else {
-                        $(this).css('backgroundImage', 'url(' + player2.activePath + ')');
-                        //$(this).css({'backgroundImage': 'url(images/path-2.jpg ',});
-                    }
-                }
-
-            }
-            
-            // if the movement isn't possible hover is false and the posible movment won't be shown
         }, 
-        function () {
-            hover = false;
-            $(this).css('backgroundImage', '');
-            //$(this).css({'backgroundImage': 'url(images/path-1.jpg ',})
-        }
     );
     // by the click method choose the next position of the player 
     gameBox.on('click', function () {
@@ -171,8 +133,8 @@ function movePlayer() {
         }
 
         if (move) {
-            // check when the player can move maximum 3 tiles (possibleMoves) horizontally or vertically
-            if (posNew.y === posOld.y && posNew.x <= posOld.x + possibleMoves && posNew.x >= posOld.x - possibleMoves
+// this checks the player movement for maximum move of 3 whether vertically or horizontally
+if (posNew.y === posOld.y && posNew.x <= posOld.x + possibleMoves && posNew.x >= posOld.x - possibleMoves
                 || posNew.x === posOld.x && posNew.y <= posOld.y + possibleMoves && posNew.y >= posOld.y - possibleMoves) {
                 // check the position X
                 for (let i = Math.min(posOld.x, posNew.x); i <= Math.max(posOld.x, posNew.x); i++) {
@@ -185,7 +147,7 @@ function movePlayer() {
                     checkWeapon(num);
                 }
                 whoIsActive();
-                // if the player moved, his tile lose a class 'active', which is set to opposite player
+                
                 if (player1Active) {
                     playerPosition = boxPosition('.player2');
                     posOld = getCoordinates(playerPosition);
@@ -211,7 +173,7 @@ function movePlayer() {
 }
 
 //initialize the Game
-function initGame() {
+const initGame = () => {
     game.create();
     for (let i = 0; i < obstacles; i += 1) {
         game.obstacles('obstacle');
@@ -231,16 +193,14 @@ function initGame() {
 initGame();
 movePlayer();
 
-// to find position x and y on the map 
-function getCoordinates(tile) {
+const getCoordinates = (cell) => {
     return {
-        x: (tile) % 10
+        x: (cell) % 10
         ,
-        y: Math.floor((tile) / 10)
+        y: Math.floor((cell) / 10)
     }
 }
 
-// to find the position of the box with player class
 const boxPosition = (itemClass) => {
     return $(itemClass).data('index');
 };
@@ -250,7 +210,7 @@ let playerPosition = boxPosition('.player1');
 // old position is the position of not active player in the moment
 let posOld = getCoordinates(playerPosition);
 
-// index of the tile on the map (from 1 to 100);
+// index of the cell on the map (from 1 to 100);
 function getTileIndex(x, y) {
     return y * 10 + x;
 }

@@ -5,47 +5,12 @@ html, body {
     padding: 0;
 }
 
-ul li {
-    list-style: circle;
-}
 .game-weapons {
     display: inline-flex;
     background-color: black;
     display: flex;
     justify-content: space-around;
 }
-figure img {
-    max-width: 5rem;
-    max-height: 5rem;
-}
-
-.player-box {   
-    background-color: black;
-    color: white;
-    opacity: 0.8;
-    text-align: center;
-    flex-direction: column;
-    min-height: 600px;
-    min-width: 250px;
-    max-height: 600px;
-    max-width: 250px;
-    margin-right: 55px;
-    margin-left: 55px;
-    border: solid 2px grey;
-    border-radius: 25px;
-    margin-top: 100px;
-}
-
-.player-box .player, .player-box .weapon {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-}
-
-.player-box .player-box {
-    margin: 0 auto;
-}
-
 
 .weps-1 img, .weps-2 img, #player-1, #player-2 {
     width: 50px;
@@ -54,18 +19,9 @@ figure img {
 }
 
 #player-1 .player, #player-2 .player {
-   
     font-size: 20px;
     text-align: center;
 }
-.player-img , #zombie-img, #human-img {
-    width: 200px;
-    height: 200px;
-}
-.name-1 , .name-2 {
-    margin-top: 30px;
-}
-
 
 #container {
     min-width: 650px;

@@ -1,14 +1,10 @@
-// create game map object
 let game = new Map(mapSize);
 
-// randomize the boxes on the map to randomize position of game's components
-function random(num) {
+const random = (num) => {
     return Math.floor(Math.random() * num);
 }
 
-/* add components to the map function like obstacles, weapon, players, 
-which is used by 'add' function by their function constructor */
-function addComponents(itemClass, player) {
+const addComponents = (itemClass, player) => {
     let restOfTiles = tiles;
     let boxes = $('.box');
     let empty = true;
@@ -30,8 +26,6 @@ function addComponents(itemClass, player) {
     }
 }
 
-// show player boxes area
 playerContainerDiv.show();
-
-// show game board
 mapContainer.show();
+

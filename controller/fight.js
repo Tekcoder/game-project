@@ -10,7 +10,6 @@ const fight = (posNew, posOld) => {
     }
 }
 
-// show and hide buttons during the fight
 const combat = ()  => {
     if(turn == 0) {
         attackBtn1.hide();
@@ -30,7 +29,6 @@ const combat = ()  => {
     }
 }
 
-// when the players fight, the board game is hidden
 const fightingArea = () => {
     mapContainer.hide();
     $('div.turn-1').empty();
@@ -41,46 +39,10 @@ const fightingArea = () => {
 
 }
 
-// display Game Over board at the end, when battle is finished.
-const gameOverBoard = () => {
-    $('.player-container').hide();
-    //$('header').hide();
-    $('#gameover-display').css({
-        'display': 'flex',
-        'justifyContent': 'center',
-        'color': '#000000',
-        'marginTop': '50px',
-        'textAlign': 'center',
-        'fontSize': '30px',
-    });
-    $('.gameOver-content').css({
-        'border': 'solid 2px grey',
-        'borderRadius': '10px',
-        'backgroundColor': '#17a2b8',
-        'opacity': '75%',
-        'padding': '10px'
-
-    });
-    $('#start-again').css({
-        'width': '150px',
-        'height': '50px',
-        'backgroundColor': '#00000',
-        'color': '#00000',
-        'boxShadow': 'darkgray',
-        'textAlign': 'center',
-        'fontSize': '1rem',
-    });
-    $('#winner').css({'color': '#ffffff',});
-
-    gameOverContainer.show();
-    player1.winner(player2);
-}
-
-// attack and defend buttons connected with attack function mentioned in player function constructor
 const fightPlayerOne = () => {
     attackBtn1.click(function() {
         player1.attack(player2);
-        pleyerDefend = 0;
+        playerDefend = 0;
         turn = 2;
         activePlayer = 2;
         combat();
@@ -97,7 +59,7 @@ const fightPlayerOne = () => {
 const fightPlayerTwo = () => {
         attackBtn2.click(function() {
         player2.attack(player1);
-        pleyerDefend = 0;
+        playerDefend = 0;
         turn = 1;
         activePlayer = 1;
         combat();
@@ -109,4 +71,36 @@ const fightPlayerTwo = () => {
         combat();
         
     })
+}
+
+const gameOverBoard = () => {
+    $('.player-container').hide();
+    $('#gameover-display').css({
+        'display': 'flex',
+        'justifyContent': 'center',
+        'color': '#000000',
+        'marginTop': '50px',
+        'textAlign': 'center',
+        'fontSize': '30px',
+    });
+    $('.gameOver-content').css({
+        'border': 'solid 2px grey',
+        'borderRadius': '10px',
+        'backgroundColor': '#17a2b8',
+        'opacity': '75%',
+        'padding': '10px'
+    });
+    $('#start-again').css({
+        'width': '150px',
+        'height': '50px',
+        'backgroundColor': '#00000',
+        'color': '#00000',
+        'boxShadow': 'darkgray',
+        'textAlign': 'center',
+        'fontSize': '1rem',
+    });
+    $('#winner').css({'color': '#ffffff',});
+
+    gameOverContainer.show();
+    player1.winner(player2);
 }

@@ -1,6 +1,4 @@
-
-// replace the weapon on the map:
-function replaceWeaponOnMap(value, weapon, cell_number) {
+const replaceWeaponOnMap = (value, weapon, cell_number) => {
     let tile = $('.box[data-index="' + cell_number + '"]');
     whoIsActive();
     tile.removeClass(weapon).addClass(playerActive.weapon);
@@ -8,16 +6,14 @@ function replaceWeaponOnMap(value, weapon, cell_number) {
     playerNotActive.power = value;        
 }
 
-// replace the information on the player's board:
-function replaceWeaponOnBoard(power){
+const replaceWeaponOnBoard = (power) => {
     whoIsActive();
     $('.weps-' + notActivePlayer).empty();
     $('<img src="images/replace-weapons/ammunition-' + currentWeapon +'.png">').appendTo(".weps-" + notActivePlayer);
     $(".weapons-" + notActivePlayer).text(power);
 }
 
-// check weapon on the tile and call replace functions (for the player's boards and for the map):
-function checkWeapon(num) {
+const checkWeapon = (num) => {
     let tile = $('.box[data-index="' + num + '"]');
     if (tile.hasClass('weapon')) {
         if (tile.hasClass('wp-1')) {
