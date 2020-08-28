@@ -36,7 +36,8 @@ const fightingArea = () => {
     $('#player-' + activePlayer).removeClass('active-board');
     attackBtn1.show();
     defendBtn1.show();
-
+    $('#restart').hide();
+    $('#rules').hide();
 }
 
 const fightPlayerOne = () => {
@@ -100,7 +101,6 @@ const gameOverBoard = () => {
         'fontSize': '1rem',
     });
     $('#winner').css({'color': '#ffffff',});
-
-    gameOverContainer.show();
+    
     player1.winner(player2);
 }

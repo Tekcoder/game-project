@@ -16,45 +16,45 @@ obstacles(itemClass) {
 }
 
   class Player {
-    constructor(name, health, itemClass, player, weapon, power) {
+    constructor(name, lifePoint, playerClass, playerNumber, weaponClass, weaponValue) {
       this.name = name;
-      this.health = health;
-      this.itemClass = itemClass;
-      this.player = player;
-      this.weapon = weapon;
-      this.power = power;
+      this.lifePoint = lifePoint;
+      this.playerClass = playerClass;
+      this.playerNumber = playerNumber;
+      this.weaponClass = weaponClass;
+      this.weaponValue = weaponValue;
   }
 
   add() {
-    addComponents(this.itemClass, this.player);
+    addComponents(this.playerClass, this.playerNumber);
   };
   
   setData() {
-    $(".name-" + this.player).text(this.name);
-    $("#life-" + this.player).text(this.health);
-    $('<img src="images/weapons/strawberry-weapon.png">').appendTo(".weps-" + this.player);
-    $(".weapons-" + this.player).text(this.power);
+    $(".name-" + this.playerNumber).text(this.name);
+    $("#life-" + this.playerNumber).text(this.lifePoint);
+    $('<img src="images/weapons/strawberry-weapon.png">').appendTo(".weps-" + this.playerNumber);
+    $(".weapons-" + this.playerNumber).text(this.weaponValue);
   };
     
     attack(exactPlayer) {
       if(playerDefend == 1) {
-        exactPlayer.health -= (this.power/2);
+        exactPlayer.lifePoint -= (this.weaponValue/2);
           playerDefend = 0;
 
           } else {
-            exactPlayer.health -= this.power;
+            exactPlayer.lifePoint -= this.weaponValue;
           }
-              $('#life-' + exactPlayer.player).text(exactPlayer.health);
-              if(exactPlayer.health <= 0) {
+              $('#life-' + exactPlayer.playerNumber).text(exactPlayer.lifePoint);
+              if(exactPlayer.lifePoint <= 0) {
                 gameOverBoard();
           }
   }
 
   winner(exactPlayer) {
-      if(exactPlayer.health <= 0) {
+      if(exactPlayer.lifePoint <= 0) {
           $('#winner').text(this.name);
           $('#looser').text(exactPlayer.name);
-      } else if (this.health <= 0) {
+      } else if (this.lifePoint <= 0) {
           $('#winner').text(exactPlayer.name);
           $('#looser').text(this.name);
 
@@ -62,9 +62,9 @@ obstacles(itemClass) {
   }  
 }
   
-  let player1 = new Player("Mario", 100, "player1", 1, "wp-1", 10);
+  let player1 = new Player("Mario", 100, "player1", 1, "weapon-1", 10);
 
-  let player2 = new Player("Pokemon", 100, "player2", 2, "wp-1", 10 );
+  let player2 = new Player("Pokemon", 100, "player2", 2, "weapon-1", 10 );
 
 class Weapon {
   constructor(type, value, itemClass) {
@@ -76,11 +76,11 @@ class Weapon {
     addComponents(this.itemClass);
     }
 }
-let firstWeapon = new Weapon("firstWeapon", 10, "wp-1 weapon");
-let secondWeapon = new Weapon("secondWeapon", 20, "wp-2 weapon");
-let thirdWeapon = new Weapon("thirdWeapon", 30, "wp-3 weapon");
-let fourthWeapon = new Weapon("fourthWeapon", 40, "wp-4 weapon");
-let fifthWeapon = new Weapon("fourthWeapon", 50, "wp-5 weapon");
+let firstWeapon = new Weapon("firstWeapon", 10, "weapon-1 weapon");
+let secondWeapon = new Weapon("secondWeapon", 20, "weapon-2 weapon");
+let thirdWeapon = new Weapon("thirdWeapon", 30, "weapon-3 weapon");
+let fourthWeapon = new Weapon("fourthWeapon", 40, "weapon-4 weapon");
+let fifthWeapon = new Weapon("fifthWeapon", 50, "weapon-5 weapon");
 
 // declare variables for game's components
 const mapSize = 99;

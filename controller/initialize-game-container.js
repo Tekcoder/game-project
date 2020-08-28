@@ -29,3 +29,9 @@ const addComponents = (itemClass, player) => {
 playerContainerDiv.show();
 mapContainer.show();
 
+// hide attack & defend button
+attackBtn1.hide();
+attackBtn2.hide(); 
+defendBtn1.hide();
+defendBtn2.hide();
+

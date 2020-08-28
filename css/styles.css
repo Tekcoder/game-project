@@ -54,30 +54,30 @@ html, body {
 
 }
 
-#container .weapon.wp-1, .wp-1 {
+#container .weapon.weapon-1, .wweapon-1 {
     background-image: url('../images/weapons/strawberry-weapon.png');
     background-size: 65px 65px;
 }
 
-#container .weapon.wp-2, .wp-2 {
+#container .weapon.weapon-2, .weapon-2 {
     background-image: url('../images/weapons/apple-weapon.png');
     background-size: 65px 65px;
 
 }
 
-#container .weapon.wp-3, .wp-3 {
+#container .weapon.weapon-3, .weapon-3 {
     background-image: url('../images/weapons/pistol3.png');
     background-size: 65px 65px;
 
 }
 
-#container .weapon.wp-4, .wp-4{
+#container .weapon.weapon-4, .weapon-4{
     background-image: url('../images/weapons/bomb.png');
     background-size: 65px 65px;
 
 }
 
-#container .weapon.wp-5, .wp-5{
+#container .weapon.weapon-5, .weapon-5{
     background-image: url('../images/weapons/sword.png');
     background-size: 65px 65px;
 
